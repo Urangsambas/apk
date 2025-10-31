@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta expr:content='data:blog.pageName' property='og:title'/>
+    <meta expr:content='data:blog.homepageUrl.canonical' property='og:url'/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+
+    <title><data:blog.pageTitle/></title>
+
+    <b:skin><![CDATA[
+      /* ======== Ardiverse Minimal Blogger Theme ======== */
+      :root{
+        --bg:#ffffff;
+        --text:#1f2937; /* gray-800 */
+        --muted:#6b7280; /* gray-500 */
+        --accent:#ff6b35; /* Ardi brand orange */
+        --accent-2:#004e89; /* navy */
+        --card:#f9fafb; /* gray-50 */
+        --border:#e5e7eb; /* gray-200 */
+        --radius:16px;
+        --maxw:1100px;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0b1220;
+          --text:#e5e7eb;
+          --muted:#94a3b8;
+          --accent:#ff7a4a;
+          --accent-2:#3ea0ff;
+          --card:#0f172a;
+          --border:#1f2937;
+        }
+        img{filter:brightness(0.95) contrast(1.05)}
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0}
+      body{font:400 16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text);background:var(--bg)}
+      a{color:var(--accent);text-decoration:none}
+      a:hover{text-decoration:underline}
+      .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+      /* Header */
+      header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.7);backdrop-filter:saturate(150%) blur(12px);border-bottom:1px solid var(--border)}
+      @media (prefers-color-scheme: dark){header.site{background:rgba(11,18,32,.6)}}
+      .brand{display:flex;align-items:center;gap:12px}
+      .brand img{height:40px;width:40px;object-fit:contain;border-radius:8px}
+      .brand-title{font-weight:700;font-size:20px;color:var(--text)}
+      nav.menu{display:flex;gap:16px;flex-wrap:wrap}
+      .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+
+      /* Layout */
+      .layout{display:grid;grid-template-columns:1fr;gap:24px;margin-top:24px}
+      @media(min-width:960px){.layout{grid-template-columns:2fr 1fr}}
+      .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+      .card-pad{padding:20px}
+
+      /* Post list */
+      .post-card{display:grid;grid-template-columns:1fr;gap:12px;border-bottom:1px solid var(--border);padding:18px 0}
+      .post-card:last-child{border-bottom:0}
+      .post-title{font-size:22px;font-weight:800;line-height:1.3;margin:0}
+      .post-meta{font-size:14px;color:var(--muted)}
+      .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
+
+      /* Single post */
+      .post-body{padding:4px 0}
+      .post-body img{max-width:100%;height:auto;border-radius:12px}
+      .post-body pre, .post-body code{background:rgba(148,163,184,.15);border-radius:8px;padding:.2em .4em}
+      .post-body blockquote{border-left:4px solid var(--accent);margin:16px 0;padding:8px 16px;background:rgba(255,107,53,.06);border-radius:8px}
+
+      /* Sidebar */
+      .widget-title{font-weight:800;margin:0 0 12px 0}
+      .widget{margin-bottom:20px}
+
+      /* Footer */
+      footer.site{margin-top:32px;border-top:1px solid var(--border)}
+      .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px}
+
+      /* Buttons */
+      .btn{display:inline-block;border:1px solid var(--border);background:var(--bg);padding:10px 14px;border-radius:12px}
+      .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+
+      /* Pagination */
+      .pager{display:flex;gap:10px;justify-content:center;padding:16px 0}
+
+      /* Search */
+      .search{display:flex;gap:8px}
+      .search input{flex:1;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+
+      /* Labels (tags) */
+      .label-list a{display:inline-block;padding:6px 10px;margin:4px;border-radius:999px;border:1px solid var(--border);font-size:14px}
+
+      /* Accessibility */
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    ]]></b:skin>
+
+    <!-- Favicon / Logo (optional image widget supplies src) -->
+    <b:include name='all-head-content'/>
+  </head>
+  <body>
+    <!-- ======= HEADER ======= -->
+    <header class='site'>
+      <div class='container topbar'>
+        <div class='brand'>
+          <b:section class='logo' id='logo' showaddelement='yes'>
+            <b:widget id='Image1' locked='false' title='Logo' type='Image'>
+              <b:includable id='main'>
+                <b:if cond='data:widget.title'>
+                  <img expr:alt='data:widget.title' expr:src='data:widgets.Image1.imageUrl' />
+                </b:if>
+              </b:includable>
+            </b:widget>
+          </b:section>
+          <a class='brand-title' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+        </div>
+        <nav class='menu'>
+          <b:section class='top-menu' id='top-menu' maxwidgets='3' showaddelement='yes'>
+            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList'/>
+          </b:section>
+          <form action='/search' class='search' method='get' role='search'>
+            <label class='sr-only' for='q'>Search</label>
+            <input id='q' name='q' placeholder='Cari artikel…' type='text'/>
+            <button class='btn' type='submit'>Cari</button>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+    <div class='container layout'>
+      <!-- ======= MAIN ======= -->
+      <main class='card card-pad'>
+        <b:section class='main' id='main' showaddelement='no'>
+          <!-- Blog posts widget -->
+          <b:widget id='Blog1' locked='true' title='Postingan' type='Blog'>
+            <b:includable id='main'>
+              <b:if cond='data:view.isHomepage'>
+                <!-- Index / Home -->
+                <b:loop values='data:posts' var='post'>
+                  <article class='post-card'>
+                    <b:if cond='data:post.firstImageUrl'>
+                      <a class='thumb-link' expr:href='data:post.url'>
+                        <img class='thumb' expr:src='data:post.firstImageUrl' expr:alt='data:post.title'/>
+                      </a>
+                    </b:if>
+                    <h2 class='post-title'>
+                      <a expr:href='data:post.url'><data:post.title/></a>
+                    </h2>
+                    <div class='post-meta'>
+                      <span><data:post.timestamp/></span>
+                      • <span>by <data:post.author/></span>
+                    </div>
+                    <p class='excerpt'><data:post.snippet/></p>
+                    <a class='btn' expr:href='data:post.url'>Baca selengkapnya →</a>
+                  </article>
+                </b:loop>
+                <div class='pager'>
+                  <b:if cond='data:olderPageUrl'>
+                    <a class='btn' expr:href='data:olderPageUrl'>← Postingan Lama</a>
+                  </b:if>
+                  <b:if cond='data:newerPageUrl'>
+                    <a class='btn' expr:href='data:newerPageUrl'>Postingan Baru →</a>
+                  </b:if>
+                </div>
+              </b:if>
+
+              <b:if cond='data:view.isSingleItem'>
+                <!-- Post / Page -->
+                <article class='post'>
+                  <h1 class='post-title'><data:post.title/></h1>
+                  <div class='post-meta'>
+                    <span><data:post.timestamp/></span>
+                    • <span>by <data:post.author/></span>
+                    • <span class='label-list'>
+                      <b:loop values='data:post.labels' var='label'>
+                        <a expr:href='data:label.url'><data:label.name/></a>
+                      </b:loop>
+                    </span>
+                  </div>
+                  <div class='post-body'><data:post.body/></div>
+                </article>
+                <div class='pager'>
+                  <b:if cond='data:post.prevUrl'><a class='btn' expr:href='data:post.prevUrl'>← Sebelumnya</a></b:if>
+                  <b:if cond='data:post.nextUrl'><a class='btn' expr:href='data:post.nextUrl'>Berikutnya →</a></b:if>
+                </div>
+                <b:include data='post' name='comments'/>
+              </b:if>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </main>
+
+      <!-- ======= SIDEBAR ======= -->
+      <aside class='card card-pad'>
+        <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+          <b:widget id='Profile1' locked='false' title='Tentang Saya' type='Profile'/>
+          <b:widget id='PopularPosts1' locked='false' title='Populer' type='PopularPosts'/>
+          <b:widget id='Labels1' locked='false' title='Kategori' type='Label'/>
+          <b:widget id='HTML1' locked='false' title='Widget Custom' type='HTML'/>
+        </b:section>
+      </aside>
+    </div>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class='site'>
+      <div class='container foot'>
+        <small>© <data:blog.title/> — <data:blog.url/></small>
+        <div>
+          <a class='btn' expr:href='data:blog.homepageUrl'>Home</a>
+          <a class='btn' href='#top'>Ke atas ↑</a>
+        </div>
+      </div>
+      <b:section class='footer-widgets container' id='footer-widgets' maxwidgets='2' showaddelement='yes'>
+        <b:widget id='LinkList2' locked='false' title='Link' type='LinkList'/>
+        <b:widget id='Text2' locked='false' title='Catatan' type='Text'/>
+      </b:section>
+    </footer>
+
+    <!-- ======= SYSTEM INCLUDES ======= -->
+    <b:include name='body-end'/>
+
+    <!-- ======= COMMENT TEMPLATE ======= -->
+    <b:template-skin/>
+    <b:defaultwidgetsettings/>
+  </body>
+</html>
